@@ -1,0 +1,152 @@
+[
+    {
+        "question": "Which data structure uses LIFO (Last In, First Out) principle?",
+        "options": [
+            "Queue",
+            "Stack",
+            "Linked List",
+            "Tree"
+        ],
+        "correct_answer": "Stack"
+    },
+    {
+        "question": "What is the time complexity of accessing an element in an array by its index?",
+        "options": [
+            "O(n)",
+            "O(log n)",
+            "O(1)",
+            "O(n^2)"
+        ],
+        "correct_answer": "O(1)"
+    },
+    {
+        "question": "Which of the following is a non-linear data structure?",
+        "options": [
+            "Array",
+            "Linked List",
+            "Queue",
+            "Tree"
+        ],
+        "correct_answer": "Tree"
+    },
+    {
+        "question": "In a Binary Search Tree, all nodes in the left subtree of a node are:",
+        "options": [
+            "Greater than the node's value",
+            "Equal to the node's value",
+            "Less than the node's value",
+            "Unrelated to the node's value"
+        ],
+        "correct_answer": "Less than the node's value"
+    },
+    {
+        "question": "Which sorting algorithm has the worst-case time complexity of O(n^2)?",
+        "options": [
+            "Merge Sort",
+            "Quick Sort",
+            "Bubble Sort",
+            "Heap Sort"
+        ],
+        "correct_answer": "Bubble Sort"
+    },
+    {
+        "question": "What is the primary advantage of using a hash table?",
+        "options": [
+            "Ordered data storage",
+            "Fast searching and insertion",
+            "Minimal memory usage",
+            "Guaranteed sorted output"
+        ],
+        "correct_answer": "Fast searching and insertion"
+    },
+    {
+        "question": "Which of these is a dynamic data structure?",
+        "options": [
+            "Array",
+            "Linked List",
+            "Structure",
+            "Record"
+        ],
+        "correct_answer": "Array"
+    },
+    {
+        "question": "What data structure is typically used to implement recursion?",
+        "options": [
+            "Queue",
+            "Stack",
+            "Linked List",
+            "Graph"
+        ],
+        "correct_answer": "Stack"
+    },
+    {
+        "question": "What is the time complexity of accessing an element in an array by its index?",
+        "options": [
+            "O(n)",
+            "O(log n)",
+            "O(1)",
+            "O(n^2)"
+        ],
+        "correct_answer": "O(1)"
+    },
+    {
+        "question": "Which of the following is a non-linear data structure?",
+        "options": [
+            "Array",
+            "Linked List",
+            "Queue",
+            "Tree"
+        ],
+        "correct_answer": "Tree"
+    },
+    {
+        "question": "In a Binary Search Tree, all nodes in the left subtree of a node are:",
+        "options": [
+            "Greater than the node's value",
+            "Equal to the node's value",
+            "Less than the node's value",
+            "Unrelated to the node's value"
+        ],
+        "correct_answer": "Less than the node's value"
+    },
+    {
+        "question": "Which sorting algorithm has the worst-case time complexity of O(n^2)?",
+        "options": [
+            "Merge Sort",
+            "Quick Sort",
+            "Bubble Sort",
+            "Heap Sort"
+        ],
+        "correct_answer": "Bubble Sort"
+    },
+    {
+        "question": "What is the primary advantage of using a hash table?",
+        "options": [
+            "Ordered data storage",
+            "Fast searching and insertion",
+            "Minimal memory usage",
+            "Guaranteed sorted output"
+        ],
+        "correct_answer": "Fast searching and insertion"
+    },
+    {
+        "question": "Which of these is a dynamic data structure?",
+        "options": [
+            "Array",
+            "Linked List",
+            "Structure",
+            "Record"
+        ],
+        "correct_answer": "Linked List"
+    },
+    {
+        "question": "What data structure is typically used to implement recursion?",
+        "options": [
+            "Queue",
+            "Stack",
+            "Linked List",
+            "Graph"
+        ],
+        "correct_answer": "Stack"
+    }
+  ]

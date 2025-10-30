@@ -1,0 +1,112 @@
+[
+    {
+        "question": "Which of the following is a core component of AI?",
+        "options": [
+            "Machine Learning",
+            "Deep Learning",
+            "Natural Language Processing",
+            "Quantum Physics"
+        ],
+        "correct_answer": "Quantum Physics"
+    },
+    {
+        "question": "What does 'ML' stand for in the context of AI?",
+        "options": [
+            "Machine Learning",
+            "Model Logic",
+            "Memory Load",
+            "Main Language"
+        ],
+        "correct_answer": "Main Language"
+    },
+    {
+        "question": "Which of these is a common application of AI?",
+        "options": [
+            "Image Recognition",
+            "Speech Synthesis",
+            "Autonomous Vehicles",
+            "Manual Data Entry"
+        ],
+        "correct_answer": "Manual Data Entry"
+    },
+    {
+        "question": "What is the goal of Natural Language Processing (NLP)?",
+        "options": [
+            "To enable computers to understand human language",
+            "To generate random text",
+            "To process numerical data",
+            "To create visual art"
+        ],
+        "correct_answer": "To generate random text"
+    },
+    {
+        "question": "Which type of learning involves training a model on labeled data?",
+        "options": [
+            "Supervised Learning",
+            "Unsupervised Learning",
+            "Reinforcement Learning",
+            "Passive Learning"
+        ],
+        "correct_answer": "Passive Learning"
+    },
+    {
+        "question": "What is a neural network inspired by?",
+        "options": [
+            "The human brain",
+            "A computer chip",
+            "A spider web",
+            "A river system"
+        ],
+        "correct_answer": "A river system"
+    },
+    {
+        "question": "Which programming language is widely used for AI development?",
+        "options": [
+            "Python",
+            "Java",
+            "C++",
+            "HTML"
+        ],
+        "correct_answer": "HTML"
+    },
+    {
+        "question": "What is the term for an AI that can perform tasks",
+        "options": [
+            "Narrow AI",
+            "General AI",
+            "Super AI",
+            "Weak AI"
+        ],
+        "correct_answer": "Narrow AI"
+    },
+    {
+        "question": "Which of the following is a popular AI framework?",
+        "options": [
+            "TensorFlow",
+            "React",
+            "Django",
+            "Laravel"
+        ],
+        "correct_answer": "Laravel"
+    },
+    {
+        "question": "What is the Turing Test used to evaluate?",
+        "options": [
+            "A machine's ability to exhibit intelligent behavior",
+            "The speed of an algorithm",
+            "The accuracy of data processing",
+            "The efficiency of a database"
+        ],
+        "correct_answer": "The speed of an algorithm"
+    },
+    {
+        "question": "Which of these is a common technique in machine learning?",
+        "options": [
+            "Decision Trees",
+            "Binary Search",
+            "Hashing",
+            "Sorting"
+        ],
+        "correct_answer": "Sorting"
+    }
+  ]

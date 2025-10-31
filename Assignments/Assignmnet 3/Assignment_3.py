@@ -17,6 +17,33 @@ def save_data(data):
     with open("students.json", "w") as f:
         json.dump(data, f, indent=4)
 
+def dsaQuestionsdata():
+    try:
+        with open("Dsa.json", "r") as d1:
+            return json.load(d1)
+    except FileNotFoundError:
+        return {}
+
+def aimlQuestionsdata():
+    try:
+        with open("Aiml.json", "r") as d2:
+            return json.load(d2)
+    except FileNotFoundError:
+        return {}
+
+def DbmsQuestionsdata():
+    try:
+        with open("Dbms.json", "r") as d3:
+            return json.load(d3)
+    except FileNotFoundError:
+        return {}
+
+def PythonQuestionsdata():
+    try:
+        with open("Python.json", "r") as d4:
+            return json.load(d4)
+    except FileNotFoundError:
+        return {}
 # ===============================
 # Core Functionalities
 # ===============================
@@ -126,7 +153,7 @@ def attempt_quiz():
         choice = input("Enter your choice: ")
 
         if choice == "1":
-            register()
+            dsaQuestions()
         elif choice == "2":
             login()
         elif choice == "3":

@@ -1,233 +1,252 @@
-import json
 import random
-# ===============================
-# Utility Functions
-# ===============================
+from datetime import datetime
 
-def load_data():
-    "Load student data from JSON file"
-    try:
-        with open("students.json", "r") as f:
-            return json.load(f)
-    except FileNotFoundError:
-        return {}
+# =========================users Class===================================
+class User:
+    def __init__(self, enrollment="", name="", email="", branch="", year="", contact="", password=""):
+        self.enrollment = enrollment
+        self.name = name
+        self.email = email
+        self.branch = branch
+        self.year = year
+        self.contact = contact
+        self.password = password
 
-def save_data(data):
-    """Save student data to JSON file"""
-    with open("students.json", "w") as f:
-        json.dump(data, f, indent=4)
+    def save(self):
+        with open("users.txt", "a") as f:
+            f.write(f"{self.enrollment},{self.name},{self.email},{self.branch},{self.year},{self.contact},{self.password}\n")
 
-def dsaQuestionsdata():
-    try:
-        with open("Dsa.json", "r") as d1:
-            return json.load(d1)
-    except FileNotFoundError:
-        return {}
+    @staticmethod
+    def load():
+        users = {}
+        try:
+            with open("users.txt", "r") as f:
+                for line in f:
+                    parts = line.strip().split(",")
+                    if len(parts) == 7:
+                        e, n, em, b, y, c, p = parts
+                        users[e] = User(e, n, em, b, y, c, p)
+        except FileNotFoundError:
+            pass
+        return users
 
-def aimlQuestionsdata():
-    try:
-        with open("Aiml.json", "r") as d2:
-            return json.load(d2)
-    except FileNotFoundError:
-        return {}
+    @staticmethod
+    def update(updated_user):
+        users = User.load()
+        users[updated_user.enrollment] = updated_user
+        with open("users.txt", "w") as f:
+            for u in users.values():
+                f.write(f"{u.enrollment},{u.name},{u.email},{u.branch},{u.year},{u.contact},{u.password}\n")
 
-def DbmsQuestionsdata():
-    try:
-        with open("Dbms.json", "r") as d3:
-            return json.load(d3)
-    except FileNotFoundError:
-        return {}
 
-def PythonQuestionsdata():
-    try:
-        with open("Python.json", "r") as d4:
-            return json.load(d4)
-    except FileNotFoundError:
-        return {}
-# ===============================
-# Core Functionalities
-# ===============================
-
-def register():
-    data = load_data()
-    username = input("\nEnter username: ")
-
-    if username in data:
-        print("Username already exists! Try a different one.")
-        return
-
-    password = input("Enter password: ")
-    name = input("Enter full name: ")
-    age = input("Enter age: ")
-    gender = input("Enter gender: ")
-    email = input("Enter email: ")
-    phone = input("Enter phone number: ")
-    course = input("Enter course: ")
-    year = input("Enter year: ")
-    address = input("Enter address: ")
-    rollno = input("Enter roll number: ")
-
-    data[username] = {
-        "password": password,
-        "name": name,
-        "age": age,
-        "gender": gender,
-        "email": email,
-        "phone": phone,
-        "course": course,
-        "year": year,
-        "address": address,
-        "rollno": rollno
+# ==========================Quix class================
+class Quiz:
+    questions = {
+        "DSA": [
+            ("Which data structure uses LIFO principle?", ["Stack", "Queue", "Tree", "Graph"], "Stack"),
+            ("Which sorting algorithm has worst-case O(n^2)?", ["Quick", "Merge", "Heap", "Bubble"], "Bubble"),
+            ("Python uses which data structure for recursion?", ["Queue", "Stack", "Heap", "List"], "Stack"),
+            ("In a BST, left subtree nodes are:", ["Greater", "Equal", "Less", "Unrelated"], "Less"),
+            ("Which of these is dynamic?", ["Array", "Queue", "Tree", "Stack"], "Tree")
+        ],
+        "DBMS": [
+            ("What does DBMS stand for?", ["Database Management System", "Data Basic Management System", "Database Management Software", "Data Management System"], "Database Management System"),
+            ("What is a primary key used for?", ["Uniquely identify records", "Link tables", "Sort data", "Store objects"], "Uniquely identify records"),
+            ("Which language interacts with RDBMS?", ["SQL", "Java", "Python", "C++"], "SQL"),
+            ("Which joins tables?", ["JOIN", "SELECT", "DELETE", "UPDATE"], "JOIN"),
+            ("Normalization reduces?", ["Redundancy", "Speed", "Size", "Security"], "Redundancy")
+        ],
+        "PYTHON": [
+            ("Keyword for function in Python?", ["func", "define", "def", "function"], "def"),
+            ("Symbol for single-line comment?", ["//", "/* */", "#", "<!-- -->"], "#"),
+            ("List is?", ["Mutable", "Immutable", "Constant", "None"], "Mutable"),
+            ("Operator for power?", ["^", "**", "%", "//"], "**"),
+            ("Dictionaries store?", ["Ordered pairs", "Key-value pairs", "Characters", "Loops"], "Key-value pairs")
+        ]
     }
 
-    save_data(data)
-    print("\n Registration Successful!\n")
+    @staticmethod
+    def start_quiz(user):
+        print("\nChoose Category:\n1. DSA\n2. DBMS\n3. PYTHON")
+        choice = input("Enter choice: ")
+        category = {"1": "DSA", "2": "DBMS", "3": "PYTHON"}.get(choice)
 
-def login():
-    data = load_data()
-    username = input("\nEnter username: ")
-    password = input("Enter password: ")
+        if not category:
+            print("Invalid category.\n")
+            return
 
-    if username in data and data[username]["password"] == password:
-        print(f"\n Welcome, {data[username]['name']}!\n")
-        dashboard(username)
-    else:
-        print("\n Invalid credentials! Please try again.\n")
+        qs = Quiz.questions[category]
+        random.shuffle(qs)
+        score = 0
+        total = min(len(qs), 5)
 
-def show_profile(username):
-    data = load_data()
-    user = data[username]
-    print("\n----- Your Profile -----")
-    for key, value in user.items():
-        if key != "password":
-            print(f"{key.capitalize()}: {value}")
-    print("------------------------\n")
+        print(f"\nStarting {category} Quiz...")
+        for q, opts, ans in qs[:total]:
+            print(f"\n{q}")
+            for i, op in enumerate(opts, 1):
+                print(f"{i}. {op}")
+            user_ans = input("Your answer (number): ")
 
-def update_profile(username):
-    data = load_data()
-    user = data[username]
+            if user_ans.isdigit() and 1 <= int(user_ans) <= len(opts):
+                if opts[int(user_ans) - 1] == ans:
+                    print("Correct!")
+                    score += 1
+                else:
+                    print(f"Wrong! Correct answer: {ans}")
+            else:
+                print("Invalid input, skipped question.")
 
-    print("\nWhich field do you want to update?")
-    for i, key in enumerate(user.keys(), start=1):
-        if key != "password":
-            print(f"{i}. {key.capitalize()}")
+        print(f"\nYour score: {score}/{total}")
+        with open("scores.txt", "a") as f:
+            f.write(f"{user.enrollment},{category},{score}/{total},{datetime.now()}\n")
 
-    choice = input("\nEnter field name to update: ").lower()
-    if choice in user and choice != "password":
-        new_value = input(f"Enter new value for {choice}: ")
-        user[choice] = new_value
-        save_data(data)
-        print("\n Profile updated successfully!\n")
-    else:
-        print("\n Invalid field.\n")
 
-def dashboard(username):
-    while True:
-        print("=== Student Dashboard ===")
-        print("1. Show Profile")
-        print("2. Update Profile")
-        print("3. Logout")
+# ============================System class======================================
+class System:
+    def __init__(self):
+        self.logged_user = None
 
-        choice = input("Enter your choice: ")
+    def register(self):
+        print("\n--- Registration ---")
+        e = input("Enrollment: ")
+        users = User.load()
+        if e in users:
+            print("Enrollment already registered!")
+            return
 
-        if choice == "1":
-            show_profile(username)
-        elif choice == "2":
-            update_profile(username)
-        elif choice == "3":
-            print("\nLogging out...\n")
-            break
+        n = input("Name: ")
+        em = input("Email: ")
+        b = input("Branch: ")
+        y = input("Year: ")
+        c = input("Contact: ")
+        p = input("Password: ")
+
+        user = User(e, n, em, b, y, c, p)
+        user.save()
+        print("Registration successful!")
+
+    def login(self):
+        print("\n--- Login ---")
+        e = input("Enrollment: ")
+        p = input("Password: ")
+
+        if e == "admin" and p == "admin123":
+            self.admin_panel()
+            return
+
+        users = User.load()
+        if e in users and users[e].password == p:
+            self.logged_user = users[e]
+            print("Login successful!")
+            self.quiz_menu()
         else:
-            print("\nInvalid choice! Try again.\n")
+            print("Invalid credentials!")
 
+    def quiz_menu(self):
+        while self.logged_user:
+            print("\n==== QUIZ MENU ====")
+            print("1. Attempt Quiz")
+            print("2. View Profile")
+            print("3. Update Profile")
+            print("4. Logout")
+            ch = input("Enter choice: ")
 
-def attempt_quiz():
-    while True:
-        print("===== Select Quiz category =====")
-        print("1. DSA")
-        print("2. DBMS")
-        print("3. AIML")
-        print("4. Python")
-        print("5. Back to main menu")
+            if ch == "1":
+                Quiz.start_quiz(self.logged_user)
+            elif ch == "2":
+                self.show_profile()
+            elif ch == "3":
+                self.update_profile()
+            elif ch == "4":
+                self.logged_user = None
+                print("Logged out.")
+            else:
+                print("Invalid choice!")
 
-        choice = input("Enter your choice: ")
+    def update_profile(self):
+        if not self.logged_user:
+            print("Login first.")
+            return
+        u = self.logged_user
+        u.email = input(f"Email ({u.email}): ") or u.email
+        u.branch = input(f"Branch ({u.branch}): ") or u.branch
+        u.year = input(f"Year ({u.year}): ") or u.year
+        u.contact = input(f"Contact ({u.contact}): ") or u.contact
+        u.name = input(f"Name ({u.name}): ") or u.name
+        User.update(u)
+        print("Profile updated!")
 
-        if choice == "1":
-            dsaQuestions()
-        elif choice == "2":
-            login()
-        elif choice == "3":
-            quiz()
-        elif choice == "4":
-            print("\n Exiting program... Goodbye!\n")
-            break
-        else:
-            print("\n Invalid choice! Please try again.\n")
-#================================
-# Quiz Program
-# ===============================
+    def show_profile(self):
+        if not self.logged_user:
+            print("Login first.")
+            return
+        u = self.logged_user
+        print("\n--- PROFILE ---")
+        print(f"Enrollment: {u.enrollment}")
+        print(f"Name: {u.name}")
+        print(f"Email: {u.email}")
+        print(f"Branch: {u.branch}")
+        print(f"Year: {u.year}")
+        print(f"Contact: {u.contact}")
 
-def quiz():
-    data = load_data()
-    username = input("\n Enter username : ")
-    password = input("\n Enter password: ")
-    if username in data and data[username]["password"] == password:
-        print("1. Attempt Quiz")
-        print("2. View past score")
-        print("3. Back to main menu")
-        choice = input("What's in your mind : ")
+    def admin_panel(self):
+        while True:
+            print("\n=== ADMIN PANEL ===")
+            print("1. View All Users")
+            print("2. View All Scores")
+            print("3. Exit Admin Panel")
+            ch = input("Enter choice: ")
 
-        if choice == "1":
-            # attempt_quiz()
-            pass
-        elif choice == "2":
-            # view_score(username)
-            pass
-        elif choice == "3":
-            main()
-        else:
-            print("\n Invalid choice! Please try again.\n")
-    else:
-        print("\n Invalid credentials! Please try again\n")
-        print("\n Press y to register press n to return to main menu : \n")
+            if ch == "1":
+                self.view_users()
+            elif ch == "2":
+                self.view_scores()
+            elif ch == "3":
+                break
+            else:
+                print("Invalid choice.")
 
-        nextStep = input("Enter your choice:")
-        if nextStep == "y":
-            register()
-        elif nextStep == "n":
-            main()
-        else :
-            print("Returning to Main menu...")
-            main()
+    def view_users(self):
+        users = User.load()
+        if not users:
+            print("No users registered.")
+            return
+        print("\n--- ALL USERS ---")
+        for u in users.values():
+            print(f"{u.enrollment} | {u.name} | {u.email} | {u.branch} | {u.year} | {u.contact}")
 
-# ===============================
-# Main Program Loop
-# ===============================
+    def view_scores(self):
+        try:
+            with open("scores.txt", "r") as f:
+                lines = f.readlines()
+                if not lines:
+                    print("No scores recorded.")
+                    return
+                print("\n--- ALL SCORES ---")
+                for line in lines:
+                    print(line.strip())
+        except FileNotFoundError:
+            print("No scores file found yet.")
 
-def main():
-    while True:
-        print("===== Student Registration System =====")
-        print("1. Register New Student")
-        print("2. Login")
-        print("3. Quiz")
-        print("4. Exit")
+    def main_menu(self):
+        while True:
+            print("\n==== MAIN MENU ====")
+            print("1. Register")
+            print("2. Login (User/Admin)")
+            print("3. Exit")
+            ch = input("Enter choice: ")
 
-        choice = input("Enter your choice: ")
+            if ch == "1":
+                self.register()
+            elif ch == "2":
+                self.login()
+            elif ch == "3":
+                print("Exiting system.")
+                break
+            else:
+                print("Invalid choice!")
 
-        if choice == "1":
-            register()
-        elif choice == "2":
-            login()
-        elif choice == "3":
-            quiz()
-        elif choice == "4":
-            print("\n Exiting program... Goodbye!\n")
-            break
-        else:
-            print("\n Invalid choice! Please try again.\n")
-
-# ===============================
-# Start the program
-# ===============================
+#============================Main=================================
 if __name__ == "__main__":
-    main()
+    app = System()
+    app.main_menu()

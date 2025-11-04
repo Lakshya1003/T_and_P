@@ -1,5 +1,5 @@
-file = open("result.txt")
-file.close()
+# file = open("result.txt")
+# file.close()
 """
 read() => complete in string
 readline() => first line in string
@@ -13,4 +13,5 @@ with open('result.txt','a') as file:
   contact = input("Enter contact : ")
   file.write("\n")
   file.write(f"{name},{clg},{enroll},{contact}\n")
-  file.append()
+  data = file.readline()
+  print(data)

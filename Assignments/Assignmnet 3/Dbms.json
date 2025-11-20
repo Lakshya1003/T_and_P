@@ -1,0 +1,37 @@
+[
+  {
+    "question": "Which component manages data storage in a DBMS?",
+    "options": [
+      "Query Processor",
+      "Storage Manager",
+      "Metadata Manager",
+      "Buffer Manager"
+    ],
+    "answer_index": 1
+  },
+  {
+    "question": "Which SQL clause is used to filter rows?",
+    "options": ["ORDER BY", "WHERE", "GROUP BY", "FROM"],
+    "answer_index": 1
+  },
+  {
+    "question": "What does ACID property ensure in transactions?",
+    "options": ["Speed", "Security", "Reliability", "Availability"],
+    "answer_index": 2
+  },
+  {
+    "question": "Which key refers to the primary key of another table?",
+    "options": ["Alternate Key", "Foreign Key", "Super Key", "Composite Key"],
+    "answer_index": 1
+  },
+  {
+    "question": "Which schedule ensures serializability?",
+    "options": [
+      "Non-conflict schedule",
+      "Serial schedule",
+      "Deadlock schedule",
+      "Random schedule"
+    ],
+    "answer_index": 1
+  }
+]

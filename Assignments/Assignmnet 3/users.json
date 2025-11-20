@@ -1,0 +1,11 @@
+{
+  "admin": {
+    "password": "admin123",
+    "name": "Administrator",
+    "email": "",
+    "branch": "",
+    "year": "",
+    "contact": "",
+    "enrollment": "0000"
+  }
+}

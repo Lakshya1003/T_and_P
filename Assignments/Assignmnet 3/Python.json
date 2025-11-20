@@ -1,0 +1,27 @@
+[
+  {
+    "question": "Which of these is a mutable built-in type in Python?",
+    "options": ["tuple", "list", "str", "int"],
+    "answer_index": 1
+  },
+  {
+    "question": "What does 'len' return for a string?",
+    "options": ["Number of characters", "Bytes", "Memory size", "None"],
+    "answer_index": 0
+  },
+  {
+    "question": "Which keyword is used to create a function?",
+    "options": ["func", "def", "function", "lambda"],
+    "answer_index": 1
+  },
+  {
+    "question": "Which operator is used for integer division?",
+    "options": ["/", "%", "//", "**"],
+    "answer_index": 2
+  },
+  {
+    "question": "What is the output of: list(range(0,5)) ?",
+    "options": ["[1,2,3,4,5]", "[0,1,2,3,4]", "[0,5]", "Error"],
+    "answer_index": 1
+  }
+]

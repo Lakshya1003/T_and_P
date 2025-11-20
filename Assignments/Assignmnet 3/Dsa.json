@@ -1,0 +1,37 @@
+[
+  {
+    "question": "Which data structure is used to implement priority queues?",
+    "options": ["Stack", "Heap", "Queue", "Linked List"],
+    "answer_index": 1
+  },
+  {
+    "question": "What is the time complexity of inserting at the beginning of a linked list?",
+    "options": ["O(1)", "O(log n)", "O(n)", "O(n log n)"],
+    "answer_index": 0
+  },
+  {
+    "question": "Which traversal technique uses a queue in trees?",
+    "options": ["Inorder", "Postorder", "Level Order", "Preorder"],
+    "answer_index": 2
+  },
+  {
+    "question": "What does hashing primarily help with?",
+    "options": [
+      "Fast searching",
+      "Sorting",
+      "Tree traversal",
+      "Graph coloring"
+    ],
+    "answer_index": 0
+  },
+  {
+    "question": "Which algorithm is used to find the shortest path in a weighted graph?",
+    "options": [
+      "Depth First Search",
+      "Breadth First Search",
+      "Dijkstra's Algorithm",
+      "Kruskal's Algorithm"
+    ],
+    "answer_index": 2
+  }
+]

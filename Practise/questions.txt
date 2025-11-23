@@ -1,0 +1,127 @@
+📝 LIST – 15 Questions
+
+Create a list of 10 numbers and print the sum of even numbers only.
+
+Write a program to insert a value at a given index from user input.
+
+Remove all occurrences of a given element from a list.
+
+Reverse a list without using reverse() or slicing.
+
+Find the maximum and minimum values in a list without using built-in functions.
+
+Count how many times each element appears in a list.
+
+Sort a list manually (write your own sorting logic).
+
+Merge two lists and remove duplicates.
+
+Check if two lists are exactly the same (element + order).
+
+Input 5 names and store them in a list, print the names sorted by length.
+
+Rotate a list right by n positions.
+
+Create a list of marks and print grades depending on ranges.
+
+Find the second largest element in a list without sorting.
+
+Convert a string to a list and remove vowels.
+
+Given a list of numbers, create a new list of squares of only odd numbers.
+
+🔒 TUPLE – 15 Questions
+
+Create a tuple and try to modify one element. Explain the error.
+
+Convert a list to a tuple, modify it, and explain why you can’t.
+
+Given a tuple of numbers, find the index of a given element.
+
+Check whether an element exists in a tuple or not.
+
+Create a tuple of 10 values and print only elements at even index.
+
+Given a tuple (1,2,3,4,5) produce (1,4,9,16,25) without modifying original tuple.
+
+Find the maximum repeating element in a tuple.
+
+Input elements from user and store in a tuple.
+
+Print tuple values in reverse using a loop, not slicing.
+
+Concatenate two tuples and sort them.
+
+Count how many times a given element occurs in a tuple.
+
+Find the sum of all numbers in a tuple without using sum().
+
+Given a tuple of names, print names longer than 5 characters.
+
+Convert a tuple to list, modify, then convert back to tuple.
+
+Given two tuples, swap their contents.
+
+🧹 SET – 15 Questions
+
+Create a set of 10 numbers, add 5 more numbers, and remove 2.
+
+Perform union, intersection, difference, symmetric difference on two sets.
+
+Check if one set is a subset of another.
+
+Remove duplicates from a list using set.
+
+Create two sets and check if they share a common element.
+
+Input 5 subjects from two students and find which subjects are same.
+
+Find unique characters from a word.
+
+Create a set of numbers 1 to 50, remove all even numbers.
+
+Check if a given value exists in a set or not.
+
+Convert a tuple to a set and print all unique values.
+
+Find the uncommon elements between two sets.
+
+Given a paragraph, print all unique words.
+
+Create a set and try to add a list. Explain error.
+
+Difference between remove() and discard() by example.
+
+Find the largest and smallest value from a set without built-in functions.
+
+🏷️ DICTIONARY – 15 Questions
+
+Create a dictionary of student details (name, age, grade) and print them.
+
+Add a new key-value pair to an existing dictionary.
+
+Update only one element in a dictionary.
+
+Delete a key from dictionary safely (without error).
+
+Count frequency of each character in a string using a dictionary.
+
+Store 5 subjects and marks in a dictionary, calculate total and average.
+
+Given a dictionary of products & prices, find the costliest & cheapest.
+
+Create a dictionary from two lists: one of keys, another of values.
+
+Given student marks in dict, print who scored more than 90.
+
+Convert dictionary keys to list and sort them.
+
+Sort dictionary by values (ascending and descending).
+
+Invert a dictionary: key becomes value, value becomes key.
+
+Merge two dictionaries, if same key exists, add their values.
+
+Create a nested dictionary of 3 students & print data of one specific student.
+
+Build a dictionary to store names and phone numbers, then search by name.
